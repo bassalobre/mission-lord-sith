@@ -1,2 +1,2 @@
-# mission-lord-sith
-A super secret mission to kill Lord Sith
+# Mission Lord Sith
+A super secret mission to kill Lord Sith.
