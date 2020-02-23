@@ -1,17 +1,22 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Hello world" />
+    <Gif v-for="gif in gifs" :name="gif.name" :key="gif.id" />
   </div>
 </template>
 
 <script>
-import HelloWorld from "@/components/HelloWorld.vue";
+import { mapState } from "vuex";
+import Gif from "@/components/Gif.vue";
 
 export default {
   name: "Home",
   components: {
-    HelloWorld
+    Gif
+  },
+  computed: {
+    ...mapState({
+      gifs: state => state.gif.all
+    })
   }
 };
 </script>

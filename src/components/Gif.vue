@@ -1,14 +1,14 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
+  <div class="gif">
+    <h1>{{ name }}</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: "HelloWorld",
+  name: "Gif",
   props: {
-    msg: String
+    name: String
   }
 };
 </script>
