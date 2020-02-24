@@ -2,18 +2,63 @@ export default {
   namespaced: true,
   state: {
     all: [
-      { id: 1, name: "Test", favorite: true },
-      { id: 2, name: "Test-2", favorite: false },
-      { id: 3, name: "Test-3", favorite: true },
-      { id: 4, name: "Test-4", favorite: false },
-      { id: 5, name: "Test-5", favorite: true }
+      {
+        id: 1,
+        name: "Sad",
+        src: "https://media.giphy.com/media/YPPI2Q6DAz4CohnPDD/giphy.gif",
+        favorite: true
+      },
+      {
+        id: 2,
+        name: "Sad-2",
+        src: "https://media.giphy.com/media/YPPI2Q6DAz4CohnPDD/giphy.gif",
+        favorite: false
+      },
+      {
+        id: 3,
+        name: "Sad-3",
+        src: "https://media.giphy.com/media/YPPI2Q6DAz4CohnPDD/giphy.gif",
+        favorite: true
+      },
+      {
+        id: 4,
+        name: "Sad-4",
+        src: "https://media.giphy.com/media/YPPI2Q6DAz4CohnPDD/giphy.gif",
+        favorite: false
+      },
+      {
+        id: 5,
+        name: "Sad-5",
+        src: "https://media.giphy.com/media/YPPI2Q6DAz4CohnPDD/giphy.gif",
+        favorite: true
+      },
+      {
+        id: 6,
+        name: "Sad-6",
+        src: "https://media.giphy.com/media/YPPI2Q6DAz4CohnPDD/giphy.gif",
+        favorite: false
+      }
     ]
   },
   getters: {
-    favorites: state => {
-      return state.all.filter(gif => gif.favorite);
+    favorites: state => state.all.filter(gif => gif.favorite)
+  },
+  mutations: {
+    favoriteGif(state, { id }) {
+      const gif = state.all.find(gif => gif.id === id);
+      gif.favorite = true;
+    },
+    removeFavorite(state, { id }) {
+      const gif = state.all.find(gif => gif.id === id);
+      gif.favorite = false;
     }
   },
-  mutations: {},
-  actions: {}
+  actions: {
+    addGifToFavorites({ commit }, gif) {
+      commit("favoriteGif", gif);
+    },
+    removeGifFromFavorites({ commit }, gif) {
+      commit("removeFavorite", gif);
+    }
+  }
 };

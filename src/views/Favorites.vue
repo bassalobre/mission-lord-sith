@@ -13,7 +13,7 @@
     </div>
     <sui-divider inverted />
     <div class="main">
-      <Gif v-for="gif in gifs" :name="gif.name" :key="gif.id" />
+      <Gif v-for="gif in gifs" :gif="gif" :key="gif.id" />
     </div>
   </div>
 </template>

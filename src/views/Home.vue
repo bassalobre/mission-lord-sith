@@ -2,13 +2,13 @@
   <div class="container home">
     <div class="topbar">
       <sui-input
-        size="massive"
+        size="huge"
         placeholder="Search gifs..."
         icon="search"
         class="search-input"
       />
       <sui-button
-        size="massive"
+        size="huge"
         color="red"
         inverted
         icon="heart"
@@ -17,7 +17,7 @@
       />
     </div>
     <div class="main">
-      <Gif v-for="gif in gifs" :name="gif.name" :key="gif.id" />
+      <Gif v-for="gif in gifs" :gif="gif" :key="gif.id" />
     </div>
   </div>
 </template>
