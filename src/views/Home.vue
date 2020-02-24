@@ -1,6 +1,24 @@
 <template>
-  <div class="home">
-    <Gif v-for="gif in gifs" :name="gif.name" :key="gif.id" />
+  <div class="container home">
+    <div class="topbar">
+      <sui-input
+        size="massive"
+        placeholder="Search gifs..."
+        icon="search"
+        class="search-input"
+      />
+      <sui-button
+        size="massive"
+        color="red"
+        inverted
+        icon="heart"
+        content="Favorites"
+        @click="goToFavorites"
+      />
+    </div>
+    <div class="main">
+      <Gif v-for="gif in gifs" :name="gif.name" :key="gif.id" />
+    </div>
   </div>
 </template>
 
@@ -17,6 +35,18 @@ export default {
     ...mapState({
       gifs: state => state.gif.all
     })
+  },
+  methods: {
+    goToFavorites() {
+      this.$router.push({ name: "Favorites" });
+    }
   }
 };
 </script>
+
+<style scoped>
+.search-input {
+  flex: 1;
+  margin-right: 10px;
+}
+</style>

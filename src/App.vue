@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <transition :name="transitionName">
+    <transition name="slide-right">
       <router-view />
     </transition>
   </div>
@@ -8,16 +8,20 @@
 
 <script>
 export default {
-  name: "App",
-  data: () => ({
-    transitionName: ""
-  }),
-  watch: {
-    $route(to, from) {
-      const toDepth = to.path.split("/").length;
-      const fromDepth = from.path.split("/").length;
-      this.transitionName = toDepth < fromDepth ? "slide-right" : "slide-left";
-    }
-  }
+  name: "App"
 };
 </script>
+
+<style>
+.slide-right-enter-active {
+  transition: all 0.2s cubic-bezier(0.5, 0.5, 0.8, 1);
+}
+.slide-right-leave-active {
+  transition: all 0.2s cubic-bezier(0.5, 0.5, 0.8, 1);
+}
+.slide-right-enter,
+.slide-right-leave-to {
+  transform: translateX(1000px);
+  opacity: 0;
+}
+</style>

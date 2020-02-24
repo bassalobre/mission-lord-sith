@@ -3,6 +3,7 @@ import SuiVue from "semantic-ui-vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
+import "semantic-ui-css/semantic.min.css";
 import "./assets/index.css";
 
 Vue.config.productionTip = false;

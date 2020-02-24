@@ -1,12 +1,21 @@
-html {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    background-color: #1b1c1d;
-    color: #ffffff;
-}
-
 body {
     margin: 0;
+    background-color: #1b1c1d;
+    color: #ffffff;
+    text-align: center;
+}
+.container {
+    padding: 30px 50px 0;
+}
+.topbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap-reverse;
+    flex-grow: 1;
+}
+
+.main {
+    padding-top: 30px;
 }
