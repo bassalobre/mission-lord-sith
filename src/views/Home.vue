@@ -2,13 +2,13 @@
   <div class="container home">
     <div class="topbar">
       <sui-input
-        size="huge"
+        size="big"
         placeholder="Search gifs..."
         icon="search"
         class="search-input"
       />
       <sui-button
-        size="huge"
+        size="big"
         color="red"
         inverted
         icon="heart"

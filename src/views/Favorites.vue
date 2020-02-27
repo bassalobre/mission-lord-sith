@@ -3,7 +3,7 @@
     <div class="topbar">
       <sui-header size="huge" inverted>Favorites</sui-header>
       <sui-button
-        size="huge"
+        size="big"
         color="blue"
         inverted
         icon="home"

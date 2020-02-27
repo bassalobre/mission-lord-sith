@@ -14,11 +14,25 @@ body {
     align-items: center;
     flex-wrap: wrap-reverse;
 }
-
 .main {
-    padding-top: 30px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 20px 0;
+    width: calc(100vw - 2em - 100px);
+    column-gap: 2em;
+}
+@media only screen and (min-width: 1024px) {
+    .main {
+        column-count: 4;
+    }
+}
+@media only screen and (max-width: 1023px) and (min-width: 768px) {
+    .main {
+        column-count: 3;
+    }
+}
+@media only screen and (max-width: 767px) and (min-width: 540px) {
+    .main {
+        column-count: 2;
+    }
 }

@@ -10,32 +10,44 @@ export default {
       },
       {
         id: 2,
-        name: "Sad-2",
-        src: "https://media.giphy.com/media/YPPI2Q6DAz4CohnPDD/giphy.gif",
+        name: "Fight",
+        src: "https://media.giphy.com/media/SsZViiaRCjgp8fVexU/giphy.gif",
         favorite: false
       },
       {
         id: 3,
-        name: "Sad-3",
-        src: "https://media.giphy.com/media/YPPI2Q6DAz4CohnPDD/giphy.gif",
+        name: "Twerk",
+        src: "https://media.giphy.com/media/xYqKJsgR6qZFK/giphy.gif",
         favorite: true
       },
       {
         id: 4,
-        name: "Sad-4",
-        src: "https://media.giphy.com/media/YPPI2Q6DAz4CohnPDD/giphy.gif",
+        name: "Mad",
+        src: "https://media.giphy.com/media/Ih7j3EzwCydUPTlOIZ/giphy.gif",
         favorite: false
       },
       {
         id: 5,
-        name: "Sad-5",
-        src: "https://media.giphy.com/media/YPPI2Q6DAz4CohnPDD/giphy.gif",
+        name: "Happy",
+        src: "https://media.giphy.com/media/el7VG1XOOvi24oRXFt/giphy.gif",
         favorite: true
       },
       {
         id: 6,
-        name: "Sad-6",
-        src: "https://media.giphy.com/media/YPPI2Q6DAz4CohnPDD/giphy.gif",
+        name: "Dancing",
+        src: "https://media.giphy.com/media/cOKjNdJDbqNCm4n0Jm/giphy.gif",
+        favorite: false
+      },
+      {
+        id: 7,
+        name: "Bed",
+        src: "https://media.giphy.com/media/TisLIMFzZJTzMFiCFC/giphy.gif",
+        favorite: true
+      },
+      {
+        id: 8,
+        name: "Sleepy",
+        src: "https://media.giphy.com/media/llZ2R6hwJVxWE/giphy.gif",
         favorite: false
       }
     ]

@@ -4,6 +4,7 @@
       <sui-dimmer-dimmable
         @mouseenter.native="active = true"
         @mouseleave.native="active = false"
+        class="gif-content"
       >
         <sui-image :src="gif.src">
           <a
@@ -59,6 +60,14 @@ export default {
 
 <style scoped>
 .gif {
-  margin: 10px;
+  width: 100%;
+  margin-bottom: 20px;
+  overflow: hidden;
+  break-inside: avoid;
+}
+.gif-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
