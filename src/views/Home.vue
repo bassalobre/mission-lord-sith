@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapActions, mapState } from "vuex";
 import Gif from "@/components/Gif.vue";
 
 export default {
@@ -36,10 +36,14 @@ export default {
       gifs: state => state.gif.all
     })
   },
+  mounted() {
+    this.searchGifsOnApi();
+  },
   methods: {
     goToFavorites() {
       this.$router.push({ name: "Favorites" });
-    }
+    },
+    ...mapActions("gif", ["searchGifsOnApi"])
   }
 };
 </script>

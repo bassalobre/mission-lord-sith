@@ -21,7 +21,17 @@ body {
     width: calc(100vw - 2em - 100px);
     column-gap: 2em;
 }
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1690px) {
+    .main {
+        column-count: 6;
+    }
+}
+@media only screen and (max-width: 1689px) and (min-width: 1380px){
+    .main {
+        column-count: 5;
+    }
+}
+@media only screen and (max-width: 1379px) and (min-width: 1024px) {
     .main {
         column-count: 4;
     }

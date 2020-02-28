@@ -6,7 +6,7 @@
         @mouseleave.native="active = false"
         class="gif-content"
       >
-        <sui-image :src="gif.src">
+        <sui-image :src="gif.images.original.url">
           <a
             v-if="gif.favorite"
             is="sui-label"
