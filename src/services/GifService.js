@@ -7,10 +7,21 @@ class GifService {
     this.api = axios.create({
       baseURL: config.API_URL
     });
+    this.cancelSource = null;
   }
 
-  searchGif(search) {
-    return this.api.get(`/search?q=${search}&api_key=${this.apiKey}&limit=30`);
+  searchGif(search, offset) {
+    this.cancelSource = axios.CancelToken.source();
+    return this.api.get(
+      `/search?q=${search}&api_key=${this.apiKey}&limit=50&offset=${offset}`,
+      { cancelToken: this.cancelSource.token }
+    );
+  }
+
+  cancelSearch() {
+    if (this.cancelSource) {
+      this.cancelSource.cancel("Start new search, stop active search");
+    }
   }
 }
 

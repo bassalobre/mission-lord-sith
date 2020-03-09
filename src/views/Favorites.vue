@@ -20,7 +20,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-import Gif from "@/components/Gif.vue";
+import Gif from "../components/Gif.vue";
 
 export default {
   name: "Favorites",

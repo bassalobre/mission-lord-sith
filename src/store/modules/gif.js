@@ -5,7 +5,9 @@ const service = new GifService();
 export default {
   namespaced: true,
   state: {
-    all: []
+    all: [],
+    search: "",
+    offset: 0
   },
   getters: {
     favorites: state => state.all.filter(gif => gif.favorite)
@@ -19,8 +21,19 @@ export default {
       const gif = state.all.find(gif => gif.id === id);
       gif.favorite = false;
     },
-    setGifs(state, gifs) {
-      state.all = gifs;
+    addGifs(state, { gifs, oldSearch }) {
+      const incrementGifs = !oldSearch || oldSearch === state.search;
+      const allGifs = state.all.concat(gifs);
+      state.all = incrementGifs ? allGifs : gifs;
+    },
+    resetGifs(state) {
+      state.all = [];
+    },
+    changeSearch(state, search) {
+      state.search = search;
+    },
+    changeOffset(state) {
+      state.offset = state.all.length;
     }
   },
   actions: {
@@ -30,10 +43,27 @@ export default {
     removeGifFromFavorites({ commit }, gif) {
       commit("removeFavorite", gif);
     },
-    searchGifsOnApi({ commit }) {
-      service.searchGif("morty").then(({ data }) => {
-        commit("setGifs", data.data);
-      });
+    searchGifsOnApi({ state, commit }, oldSearch = null) {
+      service
+        .searchGif(state.search, state.offset)
+        .then(({ data }) => {
+          commit("addGifs", { gifs: data.data, oldSearch });
+        })
+        .catch(() => commit("resetGifs"));
+    },
+    cancelSearchPreviousRequest() {
+      service.cancelSearch();
+    },
+    changeSearch({ state, commit, dispatch }, { target }) {
+      const oldSearch = state.search;
+      commit("changeSearch", target.value);
+      if (target.value.length >= 3) {
+        dispatch("cancelSearchPreviousRequest");
+        dispatch("searchGifsOnApi", oldSearch);
+      }
+    },
+    changeOffset({ commit }) {
+      commit("changeOffset");
     }
   }
 };
