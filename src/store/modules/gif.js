@@ -34,6 +34,9 @@ export default {
     },
     changeOffset(state) {
       state.offset = state.all.length;
+    },
+    resetOffset(state) {
+      state.offset = 0;
     }
   },
   actions: {
@@ -54,13 +57,14 @@ export default {
     cancelSearchPreviousRequest() {
       service.cancelSearch();
     },
-    changeSearch({ state, commit, dispatch }, { target }) {
+    changeSearch({ state, commit, dispatch }, search) {
       const oldSearch = state.search;
-      commit("changeSearch", target.value);
-      if (target.value.length >= 3) {
-        dispatch("cancelSearchPreviousRequest");
-        dispatch("searchGifsOnApi", oldSearch);
-      }
+      commit("changeSearch", search);
+
+      if (oldSearch !== state.search) commit("resetOffset");
+
+      dispatch("cancelSearchPreviousRequest");
+      dispatch("searchGifsOnApi", oldSearch);
     },
     changeOffset({ commit }) {
       commit("changeOffset");

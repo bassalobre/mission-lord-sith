@@ -1,7 +1,7 @@
 <template>
   <div class="container favorites">
     <div class="topbar">
-      <sui-header size="huge" inverted>Favorites</sui-header>
+      <sui-header size="huge" inverted class="title">Favorites</sui-header>
       <sui-button
         size="big"
         color="blue"
@@ -39,3 +39,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.title {
+  margin: 0;
+}
+</style>

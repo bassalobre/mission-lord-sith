@@ -13,6 +13,11 @@ body {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap-reverse;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background-color: #1b1c1d;
+    padding: 10px 0;
 }
 .main {
     box-sizing: border-box;

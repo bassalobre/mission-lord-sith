@@ -6,8 +6,7 @@
         placeholder="Search gifs..."
         icon="search"
         class="search-input"
-        :value="search"
-        @change="changeSearch"
+        v-model="search"
       />
       <sui-button
         size="big"
@@ -34,10 +33,12 @@ export default {
   components: {
     Gif
   },
+  data: () => ({
+    search: ""
+  }),
   computed: {
     ...mapState({
       gifs: state => state.gif.all,
-      search: state => state.gif.search,
       offset: state => state.gif.offset
     })
   },
@@ -70,6 +71,13 @@ export default {
       "changeSearch",
       "changeOffset"
     ])
+  },
+  watch: {
+    search(newValue) {
+      if (newValue.length >= 3) {
+        this.changeSearch(newValue);
+      }
+    }
   }
 };
 </script>
